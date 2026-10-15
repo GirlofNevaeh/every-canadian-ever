@@ -3,6 +3,7 @@ import { useRef, useState, type FormEvent, type ReactNode } from "react";
 import { LANGS, useLang } from "@/i18n/lang";
 import { useT } from "@/i18n/text";
 import { searchAll, type Hit } from "@/lib/search";
+import { Gate } from "@/components/paywall";
 
 const NAV = [
   { to: "/", key: "nav.home" },
@@ -210,7 +211,7 @@ export function Shell({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main id="main" className="mx-auto max-w-5xl px-4 py-6">
-        {children}
+        <Gate path={path}>{children}</Gate>
       </main>
       <footer className="no-print border-t-4 border-ink px-4 py-6">
         <div className="mx-auto flex max-w-5xl flex-wrap items-center justify-between gap-3">
