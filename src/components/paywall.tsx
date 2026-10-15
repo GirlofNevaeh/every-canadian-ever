@@ -1,9 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
-import { confirmPass, hasPass, startCheckout } from "@/lib/paywall";
+import { confirmPass, hasPass } from "@/lib/paywall";
 import { useT } from "@/i18n/text";
 
-const PRICE = "CA$9.99";
+const PLANS = "https://www.everyschoolever.com/pricing?plan=";
 
 export function Gate({ path, children }: { path: string; children: ReactNode }) {
   const { t } = useT();
@@ -47,34 +47,14 @@ export function Gate({ path, children }: { path: string; children: ReactNode }) 
 
 function Paywall() {
   const { t } = useT();
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState(false);
-
-  async function pay() {
-    setBusy(true);
-    setError(false);
-    try {
-      const { url } = await startCheckout();
-      window.location.assign(url);
-    } catch {
-      setError(true);
-      setBusy(false);
-    }
-  }
 
   return (
     <section className="rounded-3xl border-4 border-ink bg-card p-6">
       <h1 className="font-display text-5xl">{t("pay.title")}</h1>
       <p className="mt-3 max-w-xl text-lg font-bold">{t("pay.body")}</p>
-      <button
-        type="button"
-        onClick={() => void pay()}
-        disabled={busy}
-        className="mt-5 rounded-2xl bg-flag px-4 py-4 text-lg font-extrabold text-card disabled:opacity-70"
-      >
-        {busy ? t("pay.wait") : t("pay.button", { price: PRICE })}
-      </button>
-      {error ? <p className="mt-3 font-bold">{t("pay.error")}</p> : null}
+      <a href={PLANS} className="mt-5 inline-block rounded-2xl bg-flag px-4 py-4 text-lg font-extrabold text-card">
+        {t("pay.button")}
+      </a>
       <p className="mt-4">
         <Link to="/" className="font-extrabold underline">
           {t("pay.back")}
