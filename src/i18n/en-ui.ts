@@ -35,6 +35,7 @@ export const EN_UI: Record<string, string> = {
   region: "Region",
   neighbours: "Neighbours",
   "across.water": "Across the water",
+  "across.colon": ": ",
   "part.province": "{name} is a province. It is part of Canada.",
   "part.territory": "{name} is a territory. It is part of Canada.",
   "fact.land": "Land and weather",

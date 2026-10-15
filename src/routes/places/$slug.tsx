@@ -79,11 +79,12 @@ function PlacePage() {
               </Link>
             </li>
           ))}
-          {neighbours.length === 0 ? <li className="font-bold">{t("across.water")}</li> : null}
+          {neighbours.length === 0 && water.length === 0 ? <li className="font-bold">{t("across.water")}</li> : null}
         </ul>
         {water.length ? (
           <p className="mt-3 font-bold">
-            {t("across.water")}:{" "}
+            {t("across.water")}
+            {t("across.colon")}
             {water.map((item, index) => (
               <span key={item.slug}>
                 {index ? ", " : ""}
