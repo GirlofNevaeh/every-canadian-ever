@@ -10,7 +10,7 @@ Import this repository. Use these settings if Vercel does not fill them in:
 | --- | --- |
 | Framework | Other |
 | Node.js | 22 |
-| Install command | `npm ci --omit=dev --no-audit --no-fund` |
+| Install command | `npm ci --no-audit --no-fund` |
 | Build command | `npm run build` |
 | Output | Leave empty. The build writes the Vercel Build Output API to `.vercel/output`. |
 
