@@ -87,12 +87,12 @@ export const EN_FACTS: Record<string, string> = {
 
   "nation.dene.englishLine": "Dene is the common English name.",
   "nation.dene.home": "Dene homelands include much of the Northwest Territories and parts of the northern provinces.",
-  "nation.dene.fact": "Dene means the people in their language.",
+  "nation.dene.fact": "Dene means \"the people\" in their language.",
   "nation.dene.now": "Many Dene people live in these homelands now.",
 
   "nation.inuit.englishLine": "Inuit is the common English name. One person is an Inuk.",
   "nation.inuit.home": "Inuit homelands are in the Arctic, including Nunavut, northern Quebec, northern Labrador, and parts of the Northwest Territories.",
-  "nation.inuit.fact": "Inuit means the people in Inuktut.",
+  "nation.inuit.fact": "Inuit means \"the people\" in Inuktut.",
   "nation.inuit.now": "Many Inuit live in these homelands now.",
   "nation.inuit.person": "Kenojuak Ashevak was an Inuit artist.",
 
@@ -118,7 +118,7 @@ export const EN_FACTS: Record<string, string> = {
 
   "leader.john-a-macdonald.f1": "He was the first prime minister.",
   "leader.john-a-macdonald.f2": "He served two terms.",
-  "leader.alexander-mackenzie.f1": "He was a stone mason before he led the country.",
+  "leader.alexander-mackenzie.f1": "He was a stonemason before he led the country.",
   "leader.alexander-mackenzie.f2": "He was the second prime minister.",
   "leader.john-abbott.f1": "He was prime minister for a short time.",
   "leader.john-abbott.f2": "He had also been a mayor of Montreal.",
