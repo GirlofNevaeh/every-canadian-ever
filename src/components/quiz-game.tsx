@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { KID_COUNT, KidFace } from "@/components/portrait";
 import { drawQuestions, type Question } from "@/data/quiz";
+import { armQuizAudio, playCheer, playFart, unlockQuizAudio } from "@/lib/quiz-sounds";
 import { useT } from "@/i18n/text";
 
 type Child = { id: string; name: string; face: number };
@@ -34,6 +35,10 @@ export function QuizGame() {
   const [flash, setFlash] = useState(false);
   const [used, setUsed] = useState<string[]>([]);
   const timer = useRef<number | null>(null);
+
+  useEffect(() => {
+    armQuizAudio();
+  }, []);
 
   useEffect(() => () => {
     if (timer.current) window.clearTimeout(timer.current);
@@ -77,6 +82,7 @@ export function QuizGame() {
   }
 
   function start() {
+    unlockQuizAudio();
     if (mode === "teams" && (teams.length < 1 || teams.some((team) => team.childIds.length < 1))) {
       setNote(t("quiz.needTeam"));
       return;
@@ -105,6 +111,9 @@ export function QuizGame() {
     if (!activeQuestion || picked !== null) return;
     setPicked(index);
     const correct = index === activeQuestion.answer;
+    unlockQuizAudio();
+    if (correct) void playCheer();
+    else void playFart();
     timer.current = window.setTimeout(() => {
       setShow(true);
       if (!correct) return;
